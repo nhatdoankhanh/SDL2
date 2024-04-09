@@ -1,65 +1,32 @@
-#include <iostream>
+#include<bits/stdc++.h>
 
 using namespace std;
 
-char upper(char a)
+bool nguyenTo(int n)
 {
-    if(int(a) >= 97 && int(a) <= 122)
-        a = char(int(a) - 32);
-    return a;
+    if(n < 2 ) return false;
+    for(int i = 2; i <= sqrt(n); i++)
+    {
+        if(n %  i == 0) return false;
+    }
+    return true;
 }
-
-char lower(char a)
-{
-    if(int(a) <= 90 && int(a) >= 65)
-        a = char(int(a) + 32);
-    return a;
-}
- int length(char s[])
- {
-     int d = 0;
-     while(s[d] != '\0')
-        d++;
-     return d - 1;
- }
- void chuanHoa(char  s[])
- {
-     int i = 0;
-     int n = length(s);
-     while(i < n)
-     {
-         int d = 0;
-         if(s[i] == ' '){
-             while(i+ d < n && s[i+d] == ' ')
-                d++;
-         }
-         for(int j = i; j < n - d; j++)
-         {
-             s[j] = s[j + d];
-         }
-         n = n - d;
-         s[i] = upper(s[i]);
-         i++;
-         while(i < n && s[i] != ' ')
-         {
-            s[i] = lower(s[i]);
-            i++;
-         }
-         i++;
-     }
-     s[i] = '.';
-
- }
 
 int main()
 {
-    char s[] = {"   Nhat dfs        dsdsa"};
-    chuanHoa(s);
-    int d = 0;
-    while(s[d + 1] != '.'){
-        cout << s[d];
-        d++;
+    vector<bool> a(10, false);
+    for(int i = 2; i < 1000000; i++)
+    {
+        if(nguyenTo(i)) a[i] = true;
     }
-    return 0;
-
+    int n;
+    cin >> n;
+    int d;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> d;
+        if(a[d]) cout << d << " ";
+    }
 }
+
+
