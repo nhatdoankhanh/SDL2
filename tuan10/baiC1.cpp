@@ -190,13 +190,27 @@ char* trim_right(const char* a)
 int main()
 {
     const char* a = "    hellloo ccc world    ";
+    char *arr = Reverse(a);
     cout << length(a) << endl;
-    cout << Reverse(a) << endl;
-    cout << pad_rigth(a, 30) << endl;
-    cout << delete_char(a, 'c') << endl;
-    cout << pad_left(a, 30) << endl;
-    cout << truncate(a,  23) << endl;
+    cout << arr << endl;
+    delete arr;
+    arr = pad_rigth(a, 30);
+    cout << arr << endl;
+    delete arr;
+    arr = delete_char(a, 'c');
+    cout << arr << endl;
+    delete arr;
+    arr = pad_left(a, 30);
+    cout << arr << endl;
+    delete arr;
+    arr = truncate(a, 23);
+    cout << arr << endl;
+    delete arr;
     cout << is_palindrome(a) << endl;
-    cout << trim_right(a) << endl;
-    cout << trim_left(a) << endl;
+    arr = trim_right(a);
+    cout << arr << endl;
+    delete arr;
+    arr = trim_left(a);
+    cout << arr << endl;
+    delete arr;
 }
